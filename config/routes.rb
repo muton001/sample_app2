@@ -1,6 +1,9 @@
 SampleApp2::Application.routes.draw do
-  get "users/show"
-  devise_for :users
+
+  devise_for :users, :controllers => {
+    :registrations => "registrations"
+  }
+
 #  get "static_pages/home"
 #  get "static_pages/help"
 #  get "static_pages/about"
@@ -13,6 +16,9 @@ SampleApp2::Application.routes.draw do
   match '/contact', to: 'static_pages#contact', via: 'get'
 
   resources :users, only: [:show]
+
+
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
