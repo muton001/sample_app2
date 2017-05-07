@@ -1,10 +1,11 @@
 class RegistrationsController < Devise::RegistrationsController
 
     def after_sign_up_path_for(resource)
-        user_path(resource)
+        redirect_to user_path(resource)
+#        redirect_to current_user
     end
 
-
+ 
 private
 
     def sign_up_params
